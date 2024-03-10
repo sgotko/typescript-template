@@ -6,23 +6,21 @@
 			"ES2022"
 		],
 		"jsx": "react",
+		"rootDir": "..",
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"module": "NodeNext",
-		"rootDir": "src",
 		"moduleResolution": "NodeNext",
 		"paths": {
 			"@/*": [
-				"./src",
-				"./src/*"
+				"../src/*"
 			]
 		},
 		"allowImportingTsExtensions": true,
 		"resolveJsonModule": true,
 		"checkJs": false,
 		"declaration": true,
-		"emitDeclarationOnly": true,
-		"outDir": "./dist",
+		"noEmit": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
@@ -31,6 +29,5 @@
 	"exclude": [
 		"dist",
 		"node_modules",
-		"test"
 	],
 }

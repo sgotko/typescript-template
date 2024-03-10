@@ -6,8 +6,8 @@ export default {
   testEnvironment: 'node',
   moduleNameMapper: pathsToModuleNameMapper({
     "@/*": [
-        "./src",
-        "./src/*"
+        "../src",
+        "../src/*"
     ]
   }, { prefix: '<rootDir>/src' })
 };

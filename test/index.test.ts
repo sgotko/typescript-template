@@ -1,8 +1,8 @@
-import { greetings } from '../src/index.ts';
+import { greetings } from '@/index.ts';
 
 describe('Simple test', () => {
   it('Hello world', () => {
-    const greetingMessage = greetings('Bob');
+    const greetingMessage = greetings('Bob'); 
     expect(greetingMessage).toBe('Hello, Bob!');
   });
 });
