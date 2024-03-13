@@ -1,38 +1,36 @@
 // @ts-check
-import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import stylistic from '@stylistic/eslint-plugin'
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-const __dirname = dirname(fileURLToPath(import.meta.url))
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import stylistic from '@stylistic/eslint-plugin';
 
 const config = tseslint.config(
   eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.recommended,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   stylistic.configs['recommended-flat'],
   {
     languageOptions: {
       parserOptions: {
         project: true,
-        tsconfigRootDir: __dirname, // `or import.meta.dirname` on node >=20.11/21.2
+        tsconfigRootDir: import.meta.dirname,
       },
     },
-    files: ['**/*.ts', '**/*.tsx'],
-    ignores: ["dist/**/*.d.ts"],
+    files: ['**/*.ts', '**/*.d.ts', '**/*.tsx'],
+    ignores: ['dist/**/*.d.ts'],
     rules: {
       '@stylistic/semi': ['warn', 'always'],
     },
   },
   {
-    files: ['**/*.js'],
+    ...eslint.configs.recommended,
     ...tseslint.configs.disableTypeChecked,
     ...stylistic.configs['recommended-flat'],
+    files: ['**/*.js'],
     rules: {
       '@stylistic/semi': ['warn', 'always'],
-    }
+    },
   },
-)
+);
 
-export default config
+export default config;

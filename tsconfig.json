@@ -6,10 +6,8 @@
 			"ES2022"
 		],
 		"jsx": "react",
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
 		"module": "NodeNext",
-		"rootDir": "src",
+		"rootDir": ".",
 		"moduleResolution": "NodeNext",
 		"paths": {
 			"@/*": [
@@ -19,7 +17,7 @@
 		},
 		"allowImportingTsExtensions": true,
 		"resolveJsonModule": true,
-		"checkJs": false,
+		"checkJs": true,
 		"declaration": true,
 		"emitDeclarationOnly": true,
 		"outDir": "./dist",

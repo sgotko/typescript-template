@@ -5,9 +5,9 @@ export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
   moduleNameMapper: pathsToModuleNameMapper({
-    "@/*": [
-        "../src",
-        "../src/*"
-    ]
-  }, { prefix: '<rootDir>/src' })
+    '@/*': [
+      '../src',
+      '../src/*',
+    ],
+  }, { prefix: '<rootDir>/src' }),
 };
