@@ -28,11 +28,8 @@ const config = tseslint.config(
     },
   },
   {
-    ...eslint.configs.recommended,
-    ...tseslint.configs.recommended,
     ...jest.configs['flat/recommended'],
     ...jest.configs['flat/style'],
-    ...stylistic.configs['recommended-flat'],
     files: ['test/**/*.test.ts'],
   },
 );
