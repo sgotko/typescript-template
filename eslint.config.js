@@ -1,13 +1,11 @@
-// @ts-check
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
+import jest from 'eslint-plugin-jest';
 
 const config = tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   stylistic.configs['recommended-flat'],
   {
     languageOptions: {
@@ -23,13 +21,19 @@ const config = tseslint.config(
     },
   },
   {
-    ...eslint.configs.recommended,
     ...tseslint.configs.disableTypeChecked,
-    ...stylistic.configs['recommended-flat'],
     files: ['**/*.js'],
     rules: {
       '@stylistic/semi': ['warn', 'always'],
     },
+  },
+  {
+    ...eslint.configs.recommended,
+    ...tseslint.configs.recommended,
+    ...jest.configs['flat/recommended'],
+    ...jest.configs['flat/style'],
+    ...stylistic.configs['recommended-flat'],
+    files: ['test/**/*.test.ts'],
   },
 );
 
